@@ -19,7 +19,6 @@ const app = express();
 connectDB()
 
 // view engine setup
-
 const hbs = exhbs.create({
     defaultLayout: 'main',
     extname: 'hbs'
