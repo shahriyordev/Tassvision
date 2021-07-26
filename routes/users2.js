@@ -2,11 +2,11 @@
 const {Router} = require('express');
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Asosiy Bo`limi',
+router.get('/users/users2', (req, res) => {
+    res.render('dash', {
+        title: 'Dashboards Bo`limi',
         isAdd: true
-    });
+    })
 });
 
 module.exports = router

@@ -9,6 +9,7 @@ const connectDB = require('./config/db')
 // routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const users2Router = require('./routes/users2');
 const devicesRouter = require('./routes/devices');
 const dashRouter = require('./routes/dash');
 const orgRouter = require('./routes/organization');
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use( '/users', usersRouter);
+app.use( users2Router);
 app.use( devicesRouter);
 app.use( dashRouter);
 app.use( orgRouter);
