@@ -15,13 +15,16 @@ const dashRouter = require('./routes/dash');
 const orgRouter = require('./routes/organization');
 const debugRouter = require('./routes/debug');
 
+
 const app = express();
+//Calling connectDB functin for connecting to MongoDB
 connectDB()
+
 
 // view engine setup
 const hbs = exhbs.create({
-    defaultLayout: 'main',
-    extname: 'hbs'
+  defaultLayout: 'main',
+  extname: 'hbs'
 });
 
 app.engine("hbs", hbs.engine);
@@ -35,20 +38,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use( '/users', usersRouter);
-app.use( users2Router);
-app.use( devicesRouter);
-app.use( dashRouter);
-app.use( orgRouter);
-app.use( debugRouter);
+app.use('/users', usersRouter);
+app.use(users2Router);
+app.use(devicesRouter);
+app.use(dashRouter);
+app.use(orgRouter);
+app.use(debugRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
